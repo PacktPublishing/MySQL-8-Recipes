@@ -1,0 +1,38 @@
+Commands for Video 1.5
+======================
+
+# Access the database (pre-upgrade)
+mysql -uroot -p
+
+# Check version (must be at least 5.7.9)
+mysql> show variables like 'version';
+
+# Use mysqlcheck to check before the upgrade
+mysqlcheck -uroot -p --all-databases --check-upgrade
+
+# Perform a simple backup using mysqldump
+mysqldump -uroot -p --all-databases > mybackup.sql
+
+# Before stopping for the upgrade, shut down cleanly
+mysql> set global innodb_fast_shutdown = 0;
+
+# Stop the database
+systemctl stop mysqld
+
+# Upgrade method repository: Update the repository
+vim /etc/yum.repos.d/mysql-community.repo
+
+# Perform software upgrade
+yum upgrade
+
+# Start the database with the new version
+systemctl start mysqld
+
+# Perform database upgrade with mysql_upgrade
+mysql_upgrade -uroot -p
+
+# After the upgrade, restart MySQL
+systemctl restart mysqld
+
+# Check version after upgrade
+mysql> select version();

@@ -1,0 +1,11 @@
+Code Video 4.6
+==============
+
+# Create a single-column index
+CREATE INDEX idx_email ON employees (email);
+
+# Create a multiple-column index
+CREATE INDEX idx_email_phoneON employees (email, phone_number);
+
+# Create a descending index
+CREATE INDEX idx_email ON employees (email DESC);

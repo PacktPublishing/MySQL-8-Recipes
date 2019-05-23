@@ -1,0 +1,23 @@
+Commands for Video 2.4
+======================
+
+# Change to INFORMATION_SCHEMA
+USE information_schema;
+
+# View columns for view "TABLES"
+DESCRIBE tables;
+
+# Get name, schema, number of rows for all tables in schema "hr"
+SELECT table_name, table_schema, table_rows FROM tables WHERE table_schema=’hr’;
+
+# View columns for view "SCHEMATA"
+DESCRIBE schemata
+
+# Get all columns for view SCHEMATA
+SELECT * FROM schemata;
+
+# View columns for view "FILES"
+DESCRIBE files;
+
+# Get file names, type, engine and status for all database files
+SELECT file_name, file_type, engine, status FROM files;

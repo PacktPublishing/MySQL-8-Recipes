@@ -1,0 +1,33 @@
+Commands for Video 1.3
+======================
+
+# Download repository package
+wget https://dev.mysql.com/get/mysql57-community-release-fc25-10.noarch.rpm
+
+# Install repository package
+yum install mysql57-community-release-fc25-10.noarch.rpm
+
+# List repositories
+yum repolist
+
+# Install mysql-community-server package
+yum install mysql-community-server
+
+# Enable service
+systemctl enable mysqld
+
+# Start service
+service mysqld start
+
+# Get service status
+service mysqld status
+
+# Get temporary password from log file
+cd /var/log
+vim mysqld.log
+
+# Log into mysql
+mysql -uroot -p
+
+# Change password for root user
+alter user 'root'@'localhost' identified by 'myNewPassword1234!';

@@ -1,0 +1,32 @@
+Commands for Video 2.5
+======================
+
+# Get all users (and hosts from where they are allowed to connect)
+SELECT user, host FROM mysql.user;
+
+# Create new database for example
+CREATE DATABASE simon_db;
+
+# Create a new user for example
+CREATE USER 'simon'@'%' IDENTIFIED BY 'Simon123!';
+
+# User "simon" should exist here
+SELECT user, host FROM mysql.user;
+
+# Grant privileges to user "simon"
+GRANT create, select, insert, update, delete ON simon_db.* TO 'simon'@'%';
+
+# Show privileges of user "simon"
+SHOW GRANTS FOR 'simon'@'%';
+
+# As "simon": Use the new database
+USE simon_db;
+
+# As "simon": Should only see "simon_db"
+SHOW DATABASES;
+
+# As "simon": Create a new table (since we have the privilege)
+CREATE TABLE test (id INTEGER, mytext VARCHAR(20));
+
+# As "simon": Insert data into new table (since we have the privilege)
+INSERT INTO test (id, mytext) VALUES (1, 'Hello');

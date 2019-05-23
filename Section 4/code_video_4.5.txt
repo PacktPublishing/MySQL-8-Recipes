@@ -1,0 +1,19 @@
+Code Video 4.5
+==============
+
+# CTE (simple)
+WITH it_employees AS (
+ SELECT first_name, last_name
+ FROM employees WHERE department_id = 60
+ )
+SELECT first_name, last_name FROM it_employees
+WHERE salary > 5000;
+
+# CTE (recursive)
+WITH RECURSIVE cte AS
+(
+  SELECT 1
+  UNION ALL
+  SELECT n + 1 FROM cte WHERE n < 5
+)
+SELECT * FROM cte;

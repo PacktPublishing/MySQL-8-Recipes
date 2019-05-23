@@ -1,0 +1,9 @@
+Code Video 4.3
+==============
+
+# Create a table using CREATE TABLE
+CREATE TABLE example(
+example_id    INT PRIMARY KEY,
+example_name  VARCHAR(20),
+example_date  DATE
+);

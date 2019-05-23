@@ -1,0 +1,27 @@
+Code Video 4.1
+==============
+
+# Simple SELECT
+SELECT first_name, last_name FROM employees;
+
+# Example with WHERE
+SELECT first_name, last_name FROM employees WHERE salary > 5000;
+
+# Using WHERE and logical operators
+SELECT first_name, last_name FROM employees
+WHERE salary > 5000 AND last_name LIKE ‘K%’;
+
+# Ordering data
+SELECT first_name, last_name, salary
+FROM employees
+WHERE salary > 5000
+ORDER BY salary DESC;
+
+# Grouping data
+SELECT department_id, avg(salary) FROM employees GROUP BY department_id;
+
+# Simple JOIN
+SELECT e.last_name, d.department_name
+FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+WHERE d.location_id = 1700

@@ -1,0 +1,22 @@
+Code Video 3.1
+==============
+
+# Stop MySQL server
+systemctl stop mysqld
+
+# Restart MySQL server without passwords
+mysqld --skip-grant-tables --user=mysql &
+
+# Login without a password
+mysql -uroot
+
+# Load privileges table
+FLUSH PRIVILEGES
+
+# Change root password
+ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘myResetPass1234!’;
+
+# Restart the server normally and log in with your new password
+pkill mysqld
+systemctl start mysqld
+mysql -uroot -p

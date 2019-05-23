@@ -1,0 +1,11 @@
+Code Video 3.3
+==============
+
+# Backup with mysqldump
+mysqldump -uroot -p'myNewPassword1234!' --all-databases --single-transaction --result-file backup.sql
+
+# Restore backup: Login as root
+mysql -uroot -p
+
+# Restore backup: Execute backup.sql
+source backup.sql

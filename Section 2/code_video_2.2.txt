@@ -1,0 +1,26 @@
+Commands for Video 2.2
+======================
+
+# Show available databases
+SHOW DATABASES;
+
+# Switch to a database
+USE hr;
+
+# Show all tables in the current database
+SHOW TABLES;
+
+# Describe a table (view columns)
+DESCRIBE employees;
+
+# Display Server Status Variables
+SHOW STATUS
+
+# Display Server System Variables
+SHOW VARIABLES;
+
+# Display Variable "max_connections"
+SHOW VARIABLES LIKE 'max_connections';
+
+# Show available storage engines
+SHOW ENGINES

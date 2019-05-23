@@ -1,0 +1,30 @@
+Commands for Video 1.4
+======================
+
+# Install necessary libraries
+apt-get install libaio1 libnuma1
+
+# Installation commands as per documentation
+# See https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html
+groupadd mysql
+useradd -r -g mysql -s /bin/false mysql
+cd /usr/local/
+mv /home/simon/mysql-8.0.1-dmr-linux-glibc2.12-x86_64.tar.gz .
+tar xzvf mysql-8.0.1-dmr-linux-glibc2.12-x86_64.tar.gz
+ln -s mysql-8.0.1-dmr-linux-glibc2.12-x86_64 mysql
+cd /usr/local/mysql
+mkdir mysql-files
+chmod 750 mysql-files/
+chown -R mysql .
+chgrp -R mysql .
+bin/mysqld --initialize --user=mysql
+bin/mysql_ssl_rsa_setup
+chown -R root .
+chown -R mysql data/ mysql-files/
+bin/mysqld_safe --user=mysql &
+
+# MySQL Command Line client
+bin/mysql -uroot -p
+
+# Change password for root user
+alter user 'root'@'localhost' identified by 'myNewPassword1234!';

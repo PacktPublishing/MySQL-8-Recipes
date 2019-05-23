@@ -1,0 +1,27 @@
+Commands for Video 2.3
+======================
+
+# Display Server Status Variables (session)
+SHOW STATUS
+
+# Display Server Status Variables (server)
+SHOW GLOBAL STATUS
+
+# Display Server Status Variable "Bytes_received" (server and session)
+SHOW STATUS LIKE 'Bytes_received';
+SHOW GLOBAL STATUS LIKE 'Bytes_received';
+
+# Display Server System Variables
+SHOW VARIABLES
+
+# Display Server System Variable "max_connections"
+SHOW VARIABLES LIKE 'max_connections';
+
+# Display Server System Variable "innodb_buffer_pool_size"
+SHOW VARIABLES LIKE 'innodb_buffer_pool_size';
+
+# Set INNODB_BUFFER_POOL_SIZE to 700'000'000 Bytes (temporary)
+SET GLOBAL innodb_buffer_pool_size=700000000;
+
+# Set INNODB_BUFFER_POOL_SIZE to 700'000'000 Bytes (persistent)
+SET PERSIST innodb_buffer_pool_size=700000000;
